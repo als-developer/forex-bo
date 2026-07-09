@@ -1,0 +1,45 @@
+# Node
+node_modules/
+npm-debug.log
+npm-error.log
+yarn-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+error.log
+combined.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Heroku
+.heroku/
+.ssl/
+
+# Temp
+tmp/
+temp/
+*.tmp
