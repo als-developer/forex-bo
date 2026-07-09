@@ -1,0 +1,74 @@
+{
+  "name": "Forex Trading Bot",
+  "description": "AI-powered Forex trading bot with advanced mathematics",
+  "repository": "https://github.com/username/forex-bot",
+  "logo": "https://your-logo-url.com/logo.png",
+  "keywords": [
+    "forex",
+    "trading",
+    "bot",
+    "ai",
+    "mathematics",
+    "automation"
+  ],
+  "env": {
+    "FOREX_PROVIDER": {
+      "description": "Forex provider (demo or live)",
+      "value": "demo"
+    },
+    "FOREX_API_KEY": {
+      "description": "Your Forex API key",
+      "required": true
+    },
+    "FOREX_API_SECRET": {
+      "description": "Your Forex API secret",
+      "required": true
+    },
+    "FOREX_ACCOUNT_ID": {
+      "description": "Your Forex account ID",
+      "required": true
+    },
+    "AUTO_START": {
+      "description": "Auto-start bot on deployment",
+      "value": "true"
+    },
+    "LOG_LEVEL": {
+      "description": "Logging level",
+      "value": "info"
+    },
+    "TRADING_MIN_CONFIDENCE": {
+      "description": "Minimum confidence for trades",
+      "value": "0.6"
+    },
+    "TRADING_MAX_RISK_PER_TRADE": {
+      "description": "Maximum risk per trade (as decimal)",
+      "value": "0.02"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    },
+    {
+      "plan": "heroku-redis:hobby-dev"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm run db:migrate"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
